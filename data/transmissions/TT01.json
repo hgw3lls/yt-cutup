@@ -1,0 +1,80 @@
+{
+  "transmission_id": "TT01",
+  "title": "TRANSMISSION TRESPASS",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Jimmy Kimmel FCC free speech monologue",
+        "Brendan Carr FCC interview equal time",
+        "John Oliver net neutrality full segment",
+        "FCC net neutrality hearing full",
+        "Section 230 congressional hearing",
+        "Snowden NSA interview full",
+        "WikiLeaks press conference",
+        "Democracy Now free speech"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "They Live movie \"I have come here to chew bubblegum and kick ass\"",
+        "Network 1976 \"I'm as mad as hell and I'm not going to take this anymore\"",
+        "Mr Robot \"Control is an illusion\"",
+        "The Matrix Morpheus \"You take the red pill\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "YouTube Premium ad no ads",
+        "Meta ad \"bring us closer together\"",
+        "broadcast standards warning",
+        "this program may contain language warning"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "AM talk radio rant",
+        "CNN breaking news sound",
+        "Fox News alert sound",
+        "local news intro theme",
+        "pirate radio documentary",
+        "radio station interference tone"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "radio interference static",
+        "signal lost screen",
+        "broadcast interruption tone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "FCC compliance notice",
+        "media regulation hearing",
+        "broadcast standards notice"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Public Enemy live performance",
+        "Crass live",
+        "Dead Prez live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"please remain calm\" announcement",
+        "\"your safety is our priority\" announcement",
+        "\"this is only a test\" emergency alert"
+      ]
+    }
+  ]
+}

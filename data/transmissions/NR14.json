@@ -1,0 +1,64 @@
+{
+  "transmission_id": "NR14",
+  "title": "NO RETURN",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "flash crash news coverage",
+        "riot breaking news footage",
+        "breaking news chyron loop"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Fight Club \"You are not your job\"",
+        "La Haine riot scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "this is not a drill PSA",
+        "security system alarm commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "police scanner live",
+        "breaking news alert loop"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "emergency notification sound",
+        "alert tone compilation"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "market volatility statement",
+        "public safety statement press conference"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Crass live",
+        "Death Grips live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"this is not a drill\"",
+        "\"market volatility\" statement",
+        "\"remain calm\" announcement"
+      ]
+    }
+  ]
+}

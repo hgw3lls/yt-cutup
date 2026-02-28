@@ -1,0 +1,69 @@
+{
+  "transmission_id": "OF04",
+  "title": "OFFSET",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "COP climate summit speech \"1.5 degrees\"",
+        "carbon credit market explained",
+        "ESG investor conference",
+        "climate bond market panel"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Don't Look Up \"We really did have everything, didn't we?\"",
+        "The Big Short \"The system is rigged\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "BP net zero commercial",
+        "Shell clean energy ad",
+        "Exxon sustainability ad",
+        "Chevron \"Human Energy\"",
+        "carbon neutral airline commercial",
+        "Toyota hybrid commercial nature",
+        "net zero by 2050 commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "climate change PSA",
+        "weather warning broadcast"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "climate dashboard interface demo"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "sustainability commitment speech",
+        "climate pledge corporate statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Massive Attack live",
+        "Burial interview"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"net zero\" pledge",
+        "\"we are committed\" sustainability",
+        "\"offset your impact\""
+      ]
+    }
+  ]
+}

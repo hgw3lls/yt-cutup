@@ -1,0 +1,190 @@
+{
+  "schema_version": "trnzmzznz.youtube_search_map.v2.full",
+  "project": {
+    "id": "TRANSMISSIONS",
+    "title": "TRANSMISSIONS",
+    "notes": "Full package containing all modular transmission query maps (v1 + v2 additions)."
+  },
+  "defaults": {
+    "platform": "youtube",
+    "language": "en",
+    "region": "US",
+    "max_results_per_query": 25,
+    "safe_search": "none",
+    "sort": "relevance",
+    "filters": {
+      "video_duration": "any",
+      "upload_date": "any"
+    }
+  },
+  "category_defs": [
+    {
+      "category_id": "news_political",
+      "title": "News / Political"
+    },
+    {
+      "category_id": "film_tv",
+      "title": "Film / TV"
+    },
+    {
+      "category_id": "advertisements",
+      "title": "Advertisements"
+    },
+    {
+      "category_id": "radio_broadcast",
+      "title": "Radio / Broadcast"
+    },
+    {
+      "category_id": "system_ui",
+      "title": "System / UI"
+    },
+    {
+      "category_id": "corporate_institutional",
+      "title": "Corporate / Institutional"
+    },
+    {
+      "category_id": "cultural_music",
+      "title": "Cultural / Music"
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "title": "Propaganda Warning Layer"
+    }
+  ],
+  "transmissions": [
+    {
+      "transmission_id": "TT01",
+      "title": "TRANSMISSION TRESPASS",
+      "file": "TT01.json"
+    },
+    {
+      "transmission_id": "SS02",
+      "title": "SOCKET SCRIPTURES",
+      "file": "SS02.json"
+    },
+    {
+      "transmission_id": "VO03",
+      "title": "VERSIONED OUT",
+      "file": "VO03.json"
+    },
+    {
+      "transmission_id": "OF04",
+      "title": "OFFSET",
+      "file": "OF04.json"
+    },
+    {
+      "transmission_id": "LB05",
+      "title": "LOAD-BEARING",
+      "file": "LB05.json"
+    },
+    {
+      "transmission_id": "SH06",
+      "title": "SKYHOODS",
+      "file": "SH06.json"
+    },
+    {
+      "transmission_id": "SAS07",
+      "title": "SKY AS SPEAKER",
+      "file": "SAS07.json"
+    },
+    {
+      "transmission_id": "DE08",
+      "title": "DOPAMINE ECONOMY",
+      "file": "DE08.json"
+    },
+    {
+      "transmission_id": "NN09",
+      "title": "NATIONAL NET // CITIZEN-CIRCUITRY",
+      "file": "NN09.json"
+    },
+    {
+      "transmission_id": "CV10",
+      "title": "COMPLIANCE // VIOLENCE",
+      "file": "CV10.json"
+    },
+    {
+      "transmission_id": "BF11",
+      "title": "BRONCHIAL FIREWALL",
+      "file": "BF11.json"
+    },
+    {
+      "transmission_id": "BSB12",
+      "title": "BLUE SCREEN / BLACK LUNG",
+      "file": "BSB12.json"
+    },
+    {
+      "transmission_id": "ES13",
+      "title": "ERROR STATE SOVEREIGN",
+      "file": "ES13.json"
+    },
+    {
+      "transmission_id": "NR14",
+      "title": "NO RETURN",
+      "file": "NR14.json"
+    },
+    {
+      "transmission_id": "ATS15",
+      "title": "AFTER THE SERVERS",
+      "file": "ATS15.json"
+    },
+    {
+      "transmission_id": "SW16",
+      "title": "SUBWOOF SERMON",
+      "file": "SW16.json"
+    },
+    {
+      "transmission_id": "CMT17",
+      "title": "CRITICAL MASS TRANSMISSION",
+      "file": "CMT17.json"
+    },
+    {
+      "transmission_id": "COC18",
+      "title": "THE COLOR OF CONTROL",
+      "file": "COC18.json"
+    },
+    {
+      "transmission_id": "TCW19",
+      "title": "TERMS & CONDITIONS OF WAR",
+      "file": "TCW19.json"
+    },
+    {
+      "transmission_id": "CC20",
+      "title": "CACHE COLLAPSE // LOW BURNING CHROME",
+      "file": "CC20.json"
+    },
+    {
+      "transmission_id": "DDL21",
+      "title": "DEVIATION ON DELAYLINE",
+      "file": "DDL21.json"
+    },
+    {
+      "transmission_id": "RRR22",
+      "title": "REM // REWRITE // REPEAT",
+      "file": "RRR22.json"
+    },
+    {
+      "transmission_id": "BTB23",
+      "title": "BOW TO THE BUZZ",
+      "file": "BTB23.json"
+    }
+  ],
+  "clip_selection": {
+    "enabled": true,
+    "min_clip_sec": 1.0,
+    "max_clip_sec": 12.0,
+    "allow_overlaps": true,
+    "fields": [
+      "transmission_id",
+      "category_id",
+      "query",
+      "video_id",
+      "video_title",
+      "channel_title",
+      "video_url",
+      "start_time_sec",
+      "end_time_sec",
+      "notes",
+      "tags"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "transmission_id": "ES13",
+  "title": "ERROR STATE SOVEREIGN",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Gaza news report live",
+        "UN ceasefire vote session",
+        "drone strike footage news",
+        "defense department press conference"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Battle of Algiers interrogation scene",
+        "Zero Dark Thirty raid scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "government recruitment ad national security",
+        "defense contractor commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "national security briefing audio",
+        "evacuation order broadcast"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "emergency alert sound",
+        "alert siren tone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "collateral damage statement",
+        "precision strike announcement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Moor Mother live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"collateral damage\" statement",
+        "\"precision strike\" announcement",
+        "\"for your safety\" curfew announcement"
+      ]
+    }
+  ]
+}

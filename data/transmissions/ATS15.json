@@ -1,0 +1,63 @@
+{
+  "transmission_id": "ATS15",
+  "title": "AFTER THE SERVERS",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "server farm fire news",
+        "data center disaster",
+        "data breach announcement"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Station Eleven trailer",
+        "The Road final scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "cloud storage commercial",
+        "data protection service ad"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "technical difficulties screen",
+        "please stand by screen"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "domain expired notification",
+        "service outage notice"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "we regret to inform you service outage",
+        "incident report statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "William Basinski Disintegration Loops"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"please stand by\"",
+        "\"technical difficulties\"",
+        "\"we regret to inform you\""
+      ]
+    }
+  ]
+}

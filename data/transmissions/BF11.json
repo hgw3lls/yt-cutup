@@ -1,0 +1,67 @@
+{
+  "transmission_id": "BF11",
+  "title": "BRONCHIAL FIREWALL",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "wildfire smoke map news",
+        "asthma statistics report",
+        "COVID ventilator shortage"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Contagion \"R0\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "air purifier commercial",
+        "pharmaceutical inhaler ad",
+        "Xanax commercial",
+        "Zoloft commercial",
+        "sleep aid commercial",
+        "insurance ad protect your family"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "hospital commercial breathe easy",
+        "pharmaceutical disclaimer voice"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "hospital announcement system",
+        "oxygen alarm sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "pharmaceutical investor presentation",
+        "opioid awareness PSA"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "ambient drone performance",
+        "The Bug live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"ask your doctor if\"",
+        "\"side effects may include\"",
+        "\"breathe easier\" commercial"
+      ]
+    }
+  ]
+}

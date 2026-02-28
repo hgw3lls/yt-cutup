@@ -1,0 +1,78 @@
+{
+  "transmission_id": "TCW19",
+  "title": "TERMS & CONDITIONS OF WAR",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "PATRIOT Act debate floor speech",
+        "FISA court surveillance news",
+        "executive order national security announcement",
+        "cybersecurity emergency declaration press conference",
+        "export controls semiconductor speech",
+        "DHS press briefing public safety",
+        "AI deepfake election warning press conference"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "RoboCop \"I'd buy that for a dollar\"",
+        "Brazil 1985 \"Have you got a 27B/6?\"",
+        "Mr Robot \"We are finally awake\"",
+        "The Matrix \"The system is our enemy\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "terms and conditions apply commercial fast voice",
+        "privacy policy update commercial voiceover",
+        "military recruitment commercial \"We're looking for a few good men\"",
+        "cybersecurity software commercial \"protect\" \"secure\""
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "airport security announcement please comply",
+        "customer service legal disclaimer rapid voice",
+        "Emergency Alert System voice message"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "captcha audio challenge instructions",
+        "two factor authentication code message",
+        "access denied system sound",
+        "user agreement click accept screen recording"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "press conference \"out of an abundance of caution\"",
+        "corporate compliance training code of conduct",
+        "national security briefing statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Crass live 1980s",
+        "Dead Prez \"Hip Hop\" live",
+        "Death Grips live full set"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"click accept\"",
+        "\"terms and conditions apply\"",
+        "\"for your safety\"",
+        "\"this is an unlawful assembly\""
+      ]
+    }
+  ]
+}

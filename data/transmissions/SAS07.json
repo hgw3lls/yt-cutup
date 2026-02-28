@@ -1,0 +1,67 @@
+{
+  "transmission_id": "SAS07",
+  "title": "SKY AS SPEAKER",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "HAARP documentary",
+        "geoengineering cloud seeding news",
+        "DARPA sonic weapon report",
+        "weather modification conference"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Arrival \"If you could see your whole life\"",
+        "X-Files \"The truth is out there\"",
+        "Close Encounters five tone scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "emergency preparedness PSA",
+        "weather alert PSA"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "NOAA weather radio broadcast",
+        "Emergency Alert System tone",
+        "severe storm alert message"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "weather app alert sound",
+        "emergency alert sound iphone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "government emergency preparedness PSA",
+        "this is a test of the emergency broadcast system"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "The Bug live performance",
+        "Sunn O))) live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"this is a test\" emergency broadcast",
+        "\"take shelter now\" announcement",
+        "\"severe weather\" warning voice"
+      ]
+    }
+  ]
+}

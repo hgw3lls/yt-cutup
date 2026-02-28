@@ -1,0 +1,64 @@
+{
+  "transmission_id": "LB05",
+  "title": "LOAD-BEARING",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "2008 financial bailout announcement \"Too big to fail\"",
+        "COVID stimulus press conference",
+        "FEMA disaster press briefing",
+        "infrastructure bill signing ceremony"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Chernobyl \"Not great, not terrible\"",
+        "The West Wing \"What's next?\"",
+        "The Wire \"All the pieces matter\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "corporate apology commercial \"We take full responsibility\""
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "press conference prepared statement",
+        "local news press conference roof statement"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "press conference live lower third",
+        "breaking news chyron loop"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "out of an abundance of caution announcement",
+        "temporary inconvenience announcement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Godspeed You Black Emperor live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"out of an abundance of caution\"",
+        "\"temporary\" announcement",
+        "\"we take full responsibility\""
+      ]
+    }
+  ]
+}

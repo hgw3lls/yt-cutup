@@ -1,0 +1,63 @@
+{
+  "transmission_id": "NN09",
+  "title": "NATIONAL NET // CITIZEN-CIRCUITRY",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Patriot Act signing ceremony",
+        "facial recognition rollout news",
+        "political convention speech full"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Starship Troopers \"I'm doing my part\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "military recruitment commercial \"Be all you can be\"",
+        "Homeland Security PSA",
+        "see something say something PSA"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "USA chant rally",
+        "political rally crowd chant"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "security alert notification",
+        "facial recognition access granted sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "national security briefing",
+        "public safety announcement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Rage Against the Machine live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"be all you can be\"",
+        "\"see something say something\"",
+        "\"for your safety\" announcement"
+      ]
+    }
+  ]
+}

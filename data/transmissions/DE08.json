@@ -1,0 +1,72 @@
+{
+  "transmission_id": "DE08",
+  "title": "DOPAMINE ECONOMY",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "TikTok algorithm explained news",
+        "Instagram mental health hearing",
+        "infinite scroll patent explanation"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Black Mirror Nosedive \"I need your five-star rating\"",
+        "The Social Dilemma \"If you're not paying for the product, you are the product\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "Tinder commercial \"It starts with a swipe\"",
+        "Amazon Prime \"Fast free delivery\" commercial",
+        "Nike commercial \"Just Do It\"",
+        "Coca Cola commercial happiness",
+        "YouTube Premium ad no ads"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "Top 40 radio DJ intro",
+        "influencer podcast intro"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "push notification sound compilation",
+        "YouTube like subscribe animation",
+        "TikTok live gift sound",
+        "Instagram notification sound",
+        "Twitter notification sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "YouTube monetization tutorial",
+        "OnlyFans marketing interview",
+        "earn rewards today app ad"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Death Grips live performance",
+        "Playboi Carti live",
+        "hyperpop live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"unlock premium features\"",
+        "\"limited time offer\"",
+        "\"earn rewards today\""
+      ]
+    }
+  ]
+}

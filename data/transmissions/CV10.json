@@ -1,0 +1,65 @@
+{
+  "transmission_id": "CV10",
+  "title": "COMPLIANCE // VIOLENCE",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "ICE deportation footage news",
+        "riot police dispersal order",
+        "police loudspeaker dispersal order"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "The Handmaid's Tale \"Under His Eye\"",
+        "Children of Men checkpoint scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "workplace safety training video",
+        "mandatory training video corporate"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "airport boarding announcement",
+        "customer service hold music",
+        "your call is important to us"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "security alert notification",
+        "access denied sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "corporate HR compliance training video",
+        "code of conduct training"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "industrial noise live performance",
+        "Crass live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"this is an unlawful assembly\"",
+        "\"please disperse immediately\"",
+        "\"your call is important to us\""
+      ]
+    }
+  ]
+}

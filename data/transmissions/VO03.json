@@ -1,0 +1,68 @@
+{
+  "transmission_id": "VO03",
+  "title": "VERSIONED OUT",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Roe v Wade reversal news coverage",
+        "union busting press statement"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Severance \"The work is mysterious and important\"",
+        "Brazil 1985 \"Information retrieval\"",
+        "Minority Report \"Pre-crime\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "we've updated our privacy policy announcement",
+        "app update notification screen recording",
+        "software patch notes announcement",
+        "we have updated our privacy policy"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "corporate earnings call prepared statement",
+        "press conference prepared statement"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "account suspended notification",
+        "feature discontinued notice",
+        "mandatory update required",
+        "bug fixes and performance improvements"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "corporate restructuring announcement",
+        "corporate rebrand press conference",
+        "mandatory training video corporate"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Radiohead OK Computer live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"bug fixes and performance improvements\"",
+        "\"we've updated\" privacy policy",
+        "\"mandatory update\" required"
+      ]
+    }
+  ]
+}

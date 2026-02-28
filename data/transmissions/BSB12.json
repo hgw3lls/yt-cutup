@@ -1,0 +1,63 @@
+{
+  "transmission_id": "BSB12",
+  "title": "BLUE SCREEN / BLACK LUNG",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Amazon warehouse worker news",
+        "gig economy exploitation report"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Office Space \"Sounds like somebody's got a case of the Mondays\"",
+        "Sorry to Bother You call center scene"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "productivity training video",
+        "workforce management software ad"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "financial news intro music",
+        "stock market ticker sound"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "Windows error sound",
+        "system error notification",
+        "your account has been flagged"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "performance review meeting corporate",
+        "we value your feedback corporate"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Death Grips live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"we value your feedback\"",
+        "\"performance review\" meeting",
+        "\"system error\" notification"
+      ]
+    }
+  ]
+}

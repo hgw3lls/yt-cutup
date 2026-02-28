@@ -1,0 +1,65 @@
+{
+  "transmission_id": "SW16",
+  "title": "SUBWOOF SERMON",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "infrastructure collapse news",
+        "earthquake alert sound",
+        "public address announcement echo"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "city infrastructure collapse documentary",
+        "subwoofer bass scene movie"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "subwoofer commercial",
+        "bass headphones commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "stadium announcement reverb",
+        "church sermon microphone feedback"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "low frequency test sound",
+        "subwoofer test tone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "public safety siren test",
+        "emergency siren test announcement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "UK dub sound system documentary",
+        "Burial interview",
+        "The Bug live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"this is a test\" siren",
+        "\"public safety\" announcement",
+        "\"stay indoors\" announcement"
+      ]
+    }
+  ]
+}

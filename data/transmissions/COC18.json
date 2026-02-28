@@ -1,0 +1,71 @@
+{
+  "transmission_id": "COC18",
+  "title": "THE COLOR OF CONTROL",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "fentanyl crisis news",
+        "OxyContin lawsuit coverage",
+        "Blue Lives Matter rally",
+        "opioid settlement press conference"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "The Wire \"The game is the game\"",
+        "Do the Right Thing riot scene",
+        "Training Day \"King Kong\" speech"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "blue pill pharmaceutical commercial",
+        "opioid awareness PSA",
+        "anti anxiety medication commercial",
+        "pain relief commercial smiling family"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "law enforcement press conference",
+        "public safety announcement",
+        "police scanner dispatch audio"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "police radio beep tone",
+        "bodycam audio beep"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "police union press conference",
+        "district attorney press conference",
+        "pharmaceutical company statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Public Enemy live performance",
+        "Crass live",
+        "KRS-One live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"for your safety\" police announcement",
+        "\"ask your doctor\" blue pill",
+        "\"we are committed\" public safety"
+      ]
+    }
+  ]
+}

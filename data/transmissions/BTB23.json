@@ -1,0 +1,73 @@
+{
+  "transmission_id": "BTB23",
+  "title": "BOW TO THE BUZZ",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "protest crowd chant field recording",
+        "labor strike picket line chant",
+        "mass protest drone footage audio",
+        "police scanner protest response"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "V for Vendetta \"People should not be afraid\"",
+        "Do the Right Thing radio scene",
+        "La Haine \"So far so good\"",
+        "The Warriors \"Warriors come out to play\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "public transit ad announcement voice",
+        "sports arena crowd prompt announcement",
+        "security system commercial siren"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "pirate radio broadcast recording",
+        "community radio station protest coverage",
+        "street corner megaphone speech"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "walkie talkie beep",
+        "police radio squelch",
+        "broadcast interruption tone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "curfew announcement city loudspeaker",
+        "public safety advisory statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Crass live",
+        "Bad Brains live",
+        "Public Enemy live",
+        "Moor Mother live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"curfew is now in effect\"",
+        "\"please disperse\"",
+        "\"remain calm\"",
+        "\"this is a test\""
+      ]
+    }
+  ]
+}

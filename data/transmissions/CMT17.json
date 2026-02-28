@@ -1,0 +1,67 @@
+{
+  "transmission_id": "CMT17",
+  "title": "CRITICAL MASS TRANSMISSION",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "2008 stock market crash footage",
+        "SVB bank collapse news",
+        "crypto exchange bankruptcy coverage",
+        "federal reserve announcement"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Margin Call \"Be first, be smarter, or cheat\"",
+        "The Big Short \"Short it\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "crypto commercial",
+        "investment app commercial",
+        "bank commercial security trust"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "CNBC breaking news intro",
+        "financial news intro music"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "stock ticker sound",
+        "trading floor bell sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "too big to fail speech",
+        "economic downturn statement",
+        "market volatility statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Godspeed You Black Emperor live",
+        "Death Grips live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"market volatility\" statement",
+        "\"we are monitoring the situation\"",
+        "\"your funds are safe\" announcement"
+      ]
+    }
+  ]
+}

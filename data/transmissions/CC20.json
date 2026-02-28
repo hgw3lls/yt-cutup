@@ -1,0 +1,79 @@
+{
+  "transmission_id": "CC20",
+  "title": "CACHE COLLAPSE // LOW BURNING CHROME",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "internet outage nationwide news",
+        "cloud outage AWS news",
+        "major data breach announcement",
+        "ransomware attack press conference",
+        "bank ATM outage news",
+        "telecom outage statement"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "WarGames \"Shall we play a game?\"",
+        "Mr Robot data wipe scene",
+        "The Day the Earth Stood Still \"It is no longer a question of \"",
+        "Children of Men \"The world has collapsed\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "cloud storage commercial \"back up\"",
+        "antivirus software commercial",
+        "identity theft protection commercial",
+        "data recovery service commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "technical difficulties please stand by",
+        "radio dead air incident",
+        "numbers station recording",
+        "shortwave radio static scan"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "buffering circle screen recording",
+        "connection lost notification",
+        "storage full warning",
+        "disk error sound",
+        "modem dial up handshake sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "incident report press statement",
+        "we are investigating the issue statement",
+        "service restoration update statement"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "William Basinski Disintegration Loops",
+        "The Caretaker live",
+        "musique concrete tape loop composition"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"please stand by\"",
+        "\"we are investigating\"",
+        "\"service will be restored\"",
+        "\"do not turn off your device\""
+      ]
+    }
+  ]
+}

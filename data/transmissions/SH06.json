@@ -1,0 +1,68 @@
+{
+  "transmission_id": "SH06",
+  "title": "SKYHOODS",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "Dubai skyscraper construction documentary",
+        "billionaire bunker news report",
+        "smart city biometric access demo"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Elysium \"We can fix you\"",
+        "High-Rise film trailer",
+        "Parasite \"Respect\"",
+        "Blade Runner 2049 \"Welcome to the future\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "luxury condo commercial",
+        "private elevator penthouse ad",
+        "gated community commercial",
+        "smart home biometric security ad"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "luxury real estate ad narration",
+        "elevator announcement voice"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "access granted sound",
+        "biometric access granted"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "exclusive membership ad",
+        "private access only ad"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Killing Joke live",
+        "Death Grips live performance"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"access granted\"",
+        "\"exclusive\" membership",
+        "\"private access only\""
+      ]
+    }
+  ]
+}

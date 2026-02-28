@@ -1,0 +1,17 @@
+{
+  "schema_version": "trnzmzznz.clips_manifest.v1",
+  "description": "Selected clips for extraction, created by user in app. Each record references a video and a time range.",
+  "record_fields": [
+    "transmission_id",
+    "category_id",
+    "query",
+    "video_id",
+    "video_title",
+    "channel_title",
+    "video_url",
+    "start_time_sec",
+    "end_time_sec",
+    "notes",
+    "tags"
+  ]
+}

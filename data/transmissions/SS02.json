@@ -1,0 +1,76 @@
+{
+  "transmission_id": "SS02",
+  "title": "SOCKET SCRIPTURES",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "AI alignment summit panel",
+        "OpenAI keynote announcement",
+        "Sam Altman AI speech",
+        "AI ethics panel discussion"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "The Social Network \"A million dollars isn't cool. You know what's cool? A billion dollars.\"",
+        "Westworld \"These violent delights have violent ends\"",
+        "Ex Machina \"You tore up her picture\"",
+        "Black Mirror Nosedive \"I just need a five-star rating\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "Apple WWDC keynote full \"one more thing\"",
+        "Google I/O keynote applause transition",
+        "corporate mission statement narration"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "tech podcast intro music",
+        "startup pitch event applause"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "Windows startup sound",
+        "Mac startup chime",
+        "Windows error sound",
+        "Slack notification sound",
+        "Zoom waiting room sound",
+        "Apple Siri voice default response",
+        "Alexa confirmation tone",
+        "Google Assistant response"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "accept all cookies voice",
+        "captcha voice instructions",
+        "terms and conditions apply voice"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Nine Inch Nails live",
+        "Laurie Anderson live",
+        "Arca live"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"verification required\" voice",
+        "\"accept all cookies\"",
+        "\"terms and conditions apply\""
+      ]
+    }
+  ]
+}

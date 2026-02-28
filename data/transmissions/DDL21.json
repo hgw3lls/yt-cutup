@@ -1,0 +1,73 @@
+{
+  "transmission_id": "DDL21",
+  "title": "DEVIATION ON DELAYLINE",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "FTC action against dark patterns news",
+        "congress hearing social media addiction",
+        "behavioral design persuasive technology talk"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Her \"Sometimes I think I have felt everything\"",
+        "Fight Club \"Advertising has us chasing cars and clothes\"",
+        "Black Mirror \"Fifteen Million Merits\" clip"
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "dating app commercial swipe",
+        "mobile game ad \"wait\" \"timer\"",
+        "subscription auto renew commercial",
+        "buy now pay later ad",
+        "limited time offer ad"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "late night radio call in show intimacy",
+        "hold music loop",
+        "your call is important to us loop"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "loading screen with timer",
+        "subscription renewed notification",
+        "one tap purchase sound",
+        "haptic click sound iphone"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "terms of service auto renewal explanation",
+        "app store subscription cancel instructions"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "DJ screw chopped and screwed tutorial",
+        "dub delay tape echo demo",
+        "J Dilla donuts tribute mix"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"auto-renew\"",
+        "\"limited time\"",
+        "\"your call is important\"",
+        "\"please wait\""
+      ]
+    }
+  ]
+}

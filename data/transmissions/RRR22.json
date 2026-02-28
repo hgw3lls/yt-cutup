@@ -1,0 +1,75 @@
+{
+  "transmission_id": "RRR22",
+  "title": "REM // REWRITE // REPEAT",
+  "categories": [
+    {
+      "category_id": "news_political",
+      "queries": [
+        "sleep deprivation society news report",
+        "narcolepsy documentary",
+        "surveillance capitalism lecture",
+        "data privacy hearing"
+      ]
+    },
+    {
+      "category_id": "film_tv",
+      "queries": [
+        "Inception \"We need to go deeper\"",
+        "The Matrix \"Wake up\" message scene",
+        "A Clockwork Orange \"Ludovico Technique\"",
+        "Videodrome \"Long live the new flesh\""
+      ]
+    },
+    {
+      "category_id": "advertisements",
+      "queries": [
+        "sleep aid commercial",
+        "melatonin commercial",
+        "energy drink commercial \"gives you wings\"",
+        "smartwatch sleep tracking ad",
+        "mattress commercial"
+      ]
+    },
+    {
+      "category_id": "radio_broadcast",
+      "queries": [
+        "late night radio insomnia show",
+        "numbers station broadcast",
+        "shortwave dreamlike interval signal"
+      ]
+    },
+    {
+      "category_id": "system_ui",
+      "queries": [
+        "alarm clock sound compilation",
+        "sleep tracking app notification",
+        "vhs rewind sound effect",
+        "tape rewind fast forward sound"
+      ]
+    },
+    {
+      "category_id": "corporate_institutional",
+      "queries": [
+        "productivity guru talk sleep hustle",
+        "corporate wellness program sleep"
+      ]
+    },
+    {
+      "category_id": "cultural_music",
+      "queries": [
+        "Crass spoken word track",
+        "Gil Scott-Heron spoken word performance",
+        "musique concrete tape collage"
+      ]
+    },
+    {
+      "category_id": "propaganda_warning_layer",
+      "queries": [
+        "\"wake up\"",
+        "\"sleep well\" commercial voice",
+        "\"productivity\" hustle mantra",
+        "\"this message will repeat\""
+      ]
+    }
+  ]
+}
