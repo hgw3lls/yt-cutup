@@ -1,17 +1,128 @@
 {
-  "schema_version": "trnzmzznz.clips_manifest.v1",
-  "description": "Selected clips for extraction, created by user in app. Each record references a video and a time range.",
-  "record_fields": [
-    "transmission_id",
-    "category_id",
-    "query",
-    "video_id",
-    "video_title",
-    "channel_title",
-    "video_url",
-    "start_time_sec",
-    "end_time_sec",
-    "notes",
-    "tags"
-  ]
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yt-cutup.local/schemas/clips.manifest.schema.json",
+  "title": "clips.manifest.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "created_at",
+    "clips"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clip_id",
+          "source_type",
+          "video_id",
+          "video_url",
+          "title",
+          "channel",
+          "published_at",
+          "start_sec",
+          "end_sec",
+          "duration_sec",
+          "notes",
+          "tags",
+          "share_url"
+        ],
+        "properties": {
+          "clip_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_type": {
+            "type": "string",
+            "const": "youtube"
+          },
+          "video_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "video_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "type": "string",
+            "minLength": 1
+          },
+          "published_at": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "start_sec": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_sec": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "duration_sec": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "notes": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "share_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "playlist_id": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "playlist_title": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
 }

@@ -7,13 +7,17 @@
     "dev": "vite",
     "validate:data": "tsx scripts/validate-data.ts",
     "prebuild": "npm run validate:data",
-    "build": "vite build"
+    "build": "vite build",
+    "dev:client": "vite",
+    "dev:server": "uvicorn app.main:app --host 0.0.0.0 --port 8787 --reload --app-dir server",
+    "dev:all": "concurrently -k -n client,server -c blue,magenta \"npm run dev:client\" \"npm run dev:server\""
   },
   "dependencies": {
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "tsx": "^4.19.2",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "concurrently": "^9.0.1"
   }
 }

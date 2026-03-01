@@ -1,4 +1,6 @@
 import {
+  clipsManifestSchema,
+  type ClipsManifest,
   type TransmissionModule,
   type TransmissionsIndex,
   transmissionModuleSchema,
@@ -6,13 +8,14 @@ import {
 } from "./schema";
 
 const TRANSMISSION_DATA_DIR = "/data/transmissions";
+const CLIPS_DATA_DIR = "/data/clips";
 
 async function fetchJson(path: string): Promise<unknown> {
   let response: Response;
 
   try {
     response = await fetch(path);
-  } catch (error) {
+  } catch {
     throw new Error(`Unable to reach ${path}. Please check your network connection.`);
   }
 
@@ -55,6 +58,19 @@ export async function loadModule(file: string): Promise<TransmissionModule> {
   return parsed.data;
 }
 
+export async function loadClipsManifest(): Promise<ClipsManifest> {
+  const path = `${CLIPS_DATA_DIR}/clips.manifest.json`;
+  const raw = await fetchJson(path);
+  const parsed = clipsManifestSchema.safeParse(raw);
+
+  if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    throw new Error(`Invalid clips manifest at ${path}: ${issue.path.join(".") || "root"} ${issue.message}.`);
+  }
+
+  return parsed.data;
+}
+
 export type ModuleValidationStatus = {
   file: string;
   transmissionId: string;
@@ -62,9 +78,16 @@ export type ModuleValidationStatus = {
   errors: string[];
 };
 
+export type ClipsValidationStatus = {
+  file: string;
+  ok: boolean;
+  errors: string[];
+};
+
 export type ValidationReport = {
   ok: boolean;
   modules: ModuleValidationStatus[];
+  clipsManifest: ClipsValidationStatus;
 };
 
 export async function validateSearchMap(): Promise<ValidationReport> {
@@ -111,8 +134,22 @@ export async function validateSearchMap(): Promise<ValidationReport> {
     });
   }
 
+  const clipsErrors: string[] = [];
+  try {
+    await loadClipsManifest();
+  } catch (error) {
+    clipsErrors.push(error instanceof Error ? error.message : String(error));
+  }
+
+  const clipsManifest: ClipsValidationStatus = {
+    file: "data/clips/clips.manifest.json",
+    ok: clipsErrors.length === 0,
+    errors: clipsErrors,
+  };
+
   return {
-    ok: modules.every((moduleStatus) => moduleStatus.ok),
+    ok: modules.every((moduleStatus) => moduleStatus.ok) && clipsManifest.ok,
     modules,
+    clipsManifest,
   };
 }

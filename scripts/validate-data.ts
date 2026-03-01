@@ -2,14 +2,22 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import {
+  clipsManifestSchema,
   transmissionModuleSchema,
   transmissionsIndexSchema,
+  type ClipsManifest,
   type TransmissionModule,
   type TransmissionsIndex,
 } from "../src/lib/schema";
 
 type ModuleReport = {
   transmissionId: string;
+  file: string;
+  ok: boolean;
+  errors: string[];
+};
+
+type ClipsReport = {
   file: string;
   ok: boolean;
   errors: string[];
@@ -45,7 +53,23 @@ function loadModule(modulePath: string): TransmissionModule {
   return parsed.data;
 }
 
-function validate(dataDir: string): { ok: boolean; reports: ModuleReport[]; globalErrors: string[] } {
+function loadClipsManifest(clipsDir: string): ClipsManifest {
+  const clipsPath = path.join(clipsDir, "clips.manifest.json");
+  const raw = parseJsonFile(clipsPath);
+  const parsed = clipsManifestSchema.safeParse(raw);
+
+  if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    throw new Error(`Clips manifest schema error in ${clipsPath}: ${issue.path.join(".") || "root"} ${issue.message}.`);
+  }
+
+  return parsed.data;
+}
+
+function validate(
+  dataDir: string,
+  clipsDir: string,
+): { ok: boolean; reports: ModuleReport[]; clips: ClipsReport; globalErrors: string[] } {
   const index = loadIndex(dataDir);
   const globalErrors: string[] = [];
   const reports: ModuleReport[] = [];
@@ -95,27 +119,54 @@ function validate(dataDir: string): { ok: boolean; reports: ModuleReport[]; glob
     });
   }
 
+  const clipsErrors: string[] = [];
+  const manifestPath = path.join(clipsDir, "clips.manifest.json");
+  if (!existsSync(manifestPath)) {
+    clipsErrors.push("Missing clips.manifest.json.");
+  } else {
+    try {
+      loadClipsManifest(clipsDir);
+    } catch (error) {
+      clipsErrors.push(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  const clips: ClipsReport = {
+    file: manifestPath,
+    ok: clipsErrors.length === 0,
+    errors: clipsErrors,
+  };
+
   return {
-    ok: globalErrors.length === 0 && reports.every((report) => report.ok),
+    ok: globalErrors.length === 0 && reports.every((report) => report.ok) && clips.ok,
     reports,
+    clips,
     globalErrors,
   };
 }
 
 function main(): void {
   const dataDir = path.resolve(process.cwd(), "data/transmissions");
+  const clipsDir = path.resolve(process.cwd(), "data/clips");
 
   try {
-    const result = validate(dataDir);
+    const result = validate(dataDir, clipsDir);
 
-    console.log("Transmission validation report");
-    console.log("============================");
+    console.log("Validation report");
+    console.log("=================");
+    console.log("Transmissions");
 
     for (const report of result.reports) {
       console.log(`${report.ok ? "PASS" : "FAIL"} ${report.transmissionId} (${report.file})`);
       for (const error of report.errors) {
         console.log(`  - ${error}`);
       }
+    }
+
+    console.log("Clips Manifest");
+    console.log(`${result.clips.ok ? "PASS" : "FAIL"} ${result.clips.file}`);
+    for (const error of result.clips.errors) {
+      console.log(`  - ${error}`);
     }
 
     for (const error of result.globalErrors) {

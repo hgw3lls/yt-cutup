@@ -267,3 +267,90 @@ Any schema or consistency issue in transmission data fails CI.
 ## License
 
 No license file is currently present in this repository.
+
+---
+
+## YouTube Search view (official API)
+
+The app includes a **YouTube Search** tab that calls a lightweight FastAPI backend.
+Selecting a search result now opens a **Video Detail** panel with an embedded YouTube player and a reusable multi-range timecode editor (with localStorage persistence keyed by `videoId`).
+
+Frontend API base is configured with:
+
+```bash
+VITE_API_BASE=http://localhost:8787
+```
+
+If unset, it defaults to `http://localhost:8787`.
+
+Backend is in [`server/`](server/) and requires `YOUTUBE_API_KEY`. See [`server/README.md`](server/README.md) for run steps.
+
+### Clip Board + clips manifest export
+
+The app includes a global **Clip Board** tab for timestamp annotations (no media download).
+
+- Collect clips from YouTube Video Detail with **Add ranges to Clipboard**.
+- Filter clips by title/channel/tags.
+- Export:
+  - `clips.manifest.json`
+  - CSV (`clip_id,title,url,start,end,notes,tags`)
+
+Manifest shape is validated by Zod (`src/lib/schema.ts`) and the JSON schema at `data/clips/clips.manifest.schema.json`.
+
+---
+
+## YouTube Search + Timestamping (annotation-only)
+
+The frontend includes a **YouTube Search** flow for metadata + timestamp annotation only.
+
+- Search videos from backend YouTube API endpoints.
+- Open **Video Detail** with embedded YouTube player + current-time range helpers.
+- Create timestamp ranges and notes/tags in the range editor.
+
+This project does **not** download or extract media (`yt-dlp`/`ffmpeg` are intentionally excluded).
+
+## Clip Board + Exports
+
+Use the **Clip Board** tab to aggregate clip annotations across videos.
+
+- Filter/search clips by title, channel, playlist title, and tags.
+- Import a `clips.manifest.json` and validate against Zod schema.
+- Bulk tag edit for filtered clips.
+- Export:
+  - `clips.manifest.json`
+  - CSV
+
+## Playlists import + two-way sync semantics
+
+Use the **Playlists** tab for OAuth playlist workflows and local mirror staging.
+
+- Load **My Playlists** (OAuth) or import playlist by URL/ID (public read).
+- Clone imported/non-owned playlists into your account.
+- Local mirror stages add/remove/reorder changes before push.
+- Push is explicit (no silent overwrite): refresh remote, apply operations, then pull fresh.
+
+### Reorder limitations + rebuild warning
+
+Playlist reorder uses backend best-effort strategy:
+
+1. Try `playlistItems.update` with snippet positions.
+2. If needed, fallback to delete+reinsert rebuild (when enabled).
+
+Rebuild fallback may temporarily remove/reinsert entries and is exposed in API warnings/progress.
+
+## OAuth setup
+
+Create `.env` from `.env.example` and fill required values:
+
+- `VITE_API_BASE`
+- `YOUTUBE_API_KEY`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `OAUTH_REDIRECT_URL`
+- `FRONTEND_ORIGIN`
+
+### Dev scripts
+
+- `npm run dev:client` — Vite frontend
+- `npm run dev:server` — FastAPI backend (uvicorn)
+- `npm run dev:all` — run both with `concurrently`

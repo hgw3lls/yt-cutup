@@ -2,8 +2,11 @@ import { validateSearchMap } from "./lib/loaders";
 import { mountBroadcastAssemblyUI } from "./ui/broadcast-assembly";
 import { mountBrowsingUI } from "./ui";
 import { renderValidationReport } from "./ui/validation-report";
+import { mountYoutubeSearchUI } from "./ui/youtube-search";
+import { mountClipBoardUI } from "./ui/clip-board";
+import { mountPlaylistsUI } from "./ui/playlists";
 
-type AppView = "browse" | "assembly" | "validation";
+type AppView = "browse" | "assembly" | "youtube" | "playlists" | "clipboard" | "validation";
 
 const root = document.querySelector<HTMLDivElement>("#app");
 
@@ -62,6 +65,9 @@ if (!nav || !content) {
 const views: { id: AppView; label: string }[] = [
   { id: "browse", label: "Transmission Browser" },
   { id: "assembly", label: "Broadcast Assembly" },
+  { id: "youtube", label: "YouTube Search" },
+  { id: "playlists", label: "Playlists" },
+  { id: "clipboard", label: "Clip Board" },
   { id: "validation", label: "Validation Report" },
 ];
 
@@ -98,6 +104,21 @@ async function renderView(): Promise<void> {
 
   if (currentView === "assembly") {
     await mountBroadcastAssemblyUI(content);
+    return;
+  }
+
+  if (currentView === "youtube") {
+    await mountYoutubeSearchUI(content);
+    return;
+  }
+
+  if (currentView === "playlists") {
+    await mountPlaylistsUI(content);
+    return;
+  }
+
+  if (currentView === "clipboard") {
+    await mountClipBoardUI(content);
     return;
   }
 

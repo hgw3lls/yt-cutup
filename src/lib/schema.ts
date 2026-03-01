@@ -60,6 +60,46 @@ export const transmissionModuleSchema = z.object({
   categories: z.array(moduleCategorySchema),
 });
 
+export const clipManifestClipSchema = z
+  .object({
+    clip_id: z.string().min(1),
+    source_type: z.literal("youtube"),
+    video_id: z.string().min(1),
+    video_url: z.string().url(),
+    title: z.string().min(1),
+    channel: z.string().min(1),
+    published_at: z.string().datetime().nullable(),
+    start_sec: z.number().int().nonnegative(),
+    end_sec: z.number().int().nonnegative(),
+    duration_sec: z.number().int().nonnegative(),
+    notes: z.string(),
+    tags: z.array(z.string()),
+    playlist_id: z.string().min(1).nullable().optional(),
+    playlist_title: z.string().min(1).nullable().optional(),
+    share_url: z.string().url(),
+  })
+  .superRefine((clip, ctx) => {
+    if (clip.end_sec <= clip.start_sec) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "end_sec must be greater than start_sec", path: ["end_sec"] });
+    }
+
+    if (clip.duration_sec !== clip.end_sec - clip.start_sec) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "duration_sec must equal end_sec - start_sec",
+        path: ["duration_sec"],
+      });
+    }
+  });
+
+export const clipsManifestSchema = z.object({
+  schema_version: z.literal(1),
+  created_at: z.string().datetime(),
+  clips: z.array(clipManifestClipSchema),
+});
+
 export type TransmissionsIndex = z.infer<typeof transmissionsIndexSchema>;
 export type TransmissionIndexEntry = z.infer<typeof transmissionIndexEntrySchema>;
 export type TransmissionModule = z.infer<typeof transmissionModuleSchema>;
+export type ClipManifestClip = z.infer<typeof clipManifestClipSchema>;
+export type ClipsManifest = z.infer<typeof clipsManifestSchema>;
