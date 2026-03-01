@@ -1,3 +1,5 @@
+import { OPEN_YOUTUBE_SEARCH_EVENT, type OpenYoutubeSearchEventDetail } from "../../lib/youtube-search-intent";
+
 export type QueryRow = {
   transmissionId: string;
   categoryId: string;
@@ -41,8 +43,10 @@ export function renderQueryTable(container: HTMLElement, options: QueryTableOpti
     openButton.textContent = "Open Search";
     openButton.setAttribute("aria-label", `Open YouTube search for ${row.query}`);
     openButton.addEventListener("click", () => {
-      const encodedQuery = encodeURIComponent(row.query);
-      window.open(`https://www.youtube.com/results?search_query=${encodedQuery}`, "_blank", "noopener,noreferrer");
+      const event = new CustomEvent<OpenYoutubeSearchEventDetail>(OPEN_YOUTUBE_SEARCH_EVENT, {
+        detail: { query: row.query },
+      });
+      window.dispatchEvent(event);
     });
     actionCell.appendChild(openButton);
 

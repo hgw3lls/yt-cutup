@@ -18,6 +18,7 @@ This repository is designed so the same data can be validated in CI and loaded b
 - [Repository layout](#repository-layout)
 - [Prerequisites](#prerequisites)
 - [Install](#install)
+- [How to run](#how-to-run)
 - [Development workflow](#development-workflow)
 - [Data model](#data-model)
 - [How to add or edit transmissions](#how-to-add-or-edit-transmissions)
@@ -90,6 +91,75 @@ npm -v
 
 ```bash
 npm install
+```
+
+---
+
+## How to run
+
+### Frontend only (Transmission Browser + Broadcast Assembly)
+
+Use this when you only need the local Vite app and static `/data` files.
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+### Full app (frontend + FastAPI backend)
+
+Use this when you need YouTube Search, Video Detail, OAuth playlist actions, or API-backed flows.
+
+1. Install frontend dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Set backend environment values (example):
+
+   ```bash
+   export YOUTUBE_API_KEY="..."
+   export GOOGLE_CLIENT_ID="..."
+   export GOOGLE_CLIENT_SECRET="..."
+   export OAUTH_REDIRECT_URL="http://localhost:8787/api/auth/callback"
+   export FRONTEND_ORIGIN="http://localhost:5173"
+   ```
+
+3. Install backend Python dependencies (first run):
+
+   ```bash
+   python -m venv server/.venv
+   source server/.venv/bin/activate
+   python -m pip install -r server/requirements.txt
+   ```
+
+4. Start both services (with the Python venv still active):
+
+   ```bash
+   npm run dev:all
+   ```
+
+   `npm run dev:server` runs a helper script that prefers `server/.venv/bin/python` automatically when available.
+
+This starts:
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:8787`
+
+> If you see missing-module errors such as `No module named uvicorn` or `No module named google.auth`, backend dependencies are not installed in the Python environment used by the server. Re-run step 3 and keep `server/.venv` active before step 4.
+
+If you prefer separate terminals:
+
+```bash
+# terminal 1
+npm run dev:client
+
+# terminal 2 (activate backend venv first)
+source server/.venv/bin/activate
+npm run dev:server
 ```
 
 ---
@@ -352,5 +422,5 @@ Create `.env` from `.env.example` and fill required values:
 ### Dev scripts
 
 - `npm run dev:client` — Vite frontend
-- `npm run dev:server` — FastAPI backend (uvicorn)
+- `npm run dev:server` — FastAPI backend (uses `server/.venv/bin/python` when present; otherwise `python`)
 - `npm run dev:all` — run both with `concurrently`
