@@ -416,5 +416,5 @@ Create `.env` from `.env.example` and fill required values:
 ### Dev scripts
 
 - `npm run dev:client` — Vite frontend
-- `npm run dev:server` — FastAPI backend (uvicorn)
+- `npm run dev:server` — FastAPI backend (`python -m uvicorn`)
 - `npm run dev:all` — run both with `concurrently`
