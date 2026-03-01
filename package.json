@@ -1,0 +1,19 @@
+{
+  "name": "yt-cutup",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "prebuild": "npm run validate:data",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "vite": "^5.4.11"
+  }
+}
