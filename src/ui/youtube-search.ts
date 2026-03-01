@@ -1,6 +1,7 @@
 import { getYoutubeVideo, searchYoutube, type YoutubeVideo } from "../lib/api";
 import { addClipsToClipBoard } from "../lib/clip-board";
 import { loadLastYoutubeSearchResults, saveLastYoutubeSearchResults } from "../lib/youtube-search-cache";
+import { consumeYoutubeSearchIntentQuery } from "../lib/youtube-search-intent";
 import { renderErrorBoundary } from "./error-boundary";
 import { mountYoutubeVideoDetail } from "./youtube-video-detail";
 
@@ -162,4 +163,15 @@ export async function mountYoutubeSearchUI(container: HTMLElement): Promise<void
     }
     void runSearch(lastQuery, true);
   });
+
+  const initialQuery = consumeYoutubeSearchIntentQuery();
+  if (initialQuery.length > 0) {
+    const input = form.querySelector<HTMLInputElement>('input[name="q"]');
+    if (input) {
+      input.value = initialQuery;
+    }
+    lastQuery = initialQuery;
+    nextPageToken = undefined;
+    void runSearch(initialQuery, false);
+  }
 }

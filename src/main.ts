@@ -5,6 +5,7 @@ import { renderValidationReport } from "./ui/validation-report";
 import { mountYoutubeSearchUI } from "./ui/youtube-search";
 import { mountClipBoardUI } from "./ui/clip-board";
 import { mountPlaylistsUI } from "./ui/playlists";
+import { OPEN_YOUTUBE_SEARCH_EVENT, setYoutubeSearchIntentQuery, type OpenYoutubeSearchEventDetail } from "./lib/youtube-search-intent";
 
 type AppView = "browse" | "assembly" | "youtube" | "playlists" | "clipboard" | "validation";
 
@@ -72,6 +73,14 @@ const views: { id: AppView; label: string }[] = [
 ];
 
 let currentView: AppView = "browse";
+
+window.addEventListener(OPEN_YOUTUBE_SEARCH_EVENT, (rawEvent: Event) => {
+  const event = rawEvent as CustomEvent<OpenYoutubeSearchEventDetail>;
+  const query = event.detail?.query ?? "";
+  setYoutubeSearchIntentQuery(query);
+  currentView = "youtube";
+  void renderView();
+});
 
 function updateNav(): void {
   nav.innerHTML = "";
