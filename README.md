@@ -131,12 +131,14 @@ Use this when you need YouTube Search, Video Detail, OAuth playlist actions, or 
 3. Install backend Python dependencies (first run):
 
    ```bash
-   python -m venv server/.venv
-   source server/.venv/bin/activate
-   python -m pip install -r server/requirements.txt
+   cd server
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   cd ..
    ```
 
-4. Start both services (with the Python venv still active):
+4. Start both services:
 
    ```bash
    npm run dev:all
@@ -147,16 +149,10 @@ This starts:
 - Frontend: `http://localhost:5173`
 - Backend: `http://localhost:8787`
 
-> If you see `python -m uvicorn: No module named uvicorn`, the backend dependencies are not installed in your active Python environment. Re-run step 3 and ensure the venv is activated before step 4.
-
 If you prefer separate terminals:
 
 ```bash
-# terminal 1
 npm run dev:client
-
-# terminal 2 (activate backend venv first)
-source server/.venv/bin/activate
 npm run dev:server
 ```
 
