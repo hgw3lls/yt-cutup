@@ -1,5 +1,6 @@
+import { loadClipBoardManifest } from "../lib/clip-board";
 import { loadIndex, loadModule } from "../lib/loaders";
-import type { TransmissionModule, TransmissionsIndex } from "../lib/schema";
+import { clipsManifestSchema, type ClipManifestClip, type ClipsManifest, type TransmissionModule, type TransmissionsIndex } from "../lib/schema";
 import { renderErrorBoundary } from "./error-boundary";
 
 type TransmissionAssemblyState = {
@@ -10,13 +11,27 @@ type TransmissionAssemblyState = {
   introStingerGroup: string;
   outroStingerGroup: string;
   shutdownEvent: boolean;
+  youtubeClips: YoutubeClipBlock[];
 };
 
-type BroadcastBlock = {
+type StandardBroadcastBlock = {
   type: "stinger" | "spokenword" | "samplebed";
   duration_sec: number;
   source: string;
 };
+
+type YoutubeClipBlock = {
+  type: "youtube_clip";
+  source: "youtube_clip";
+  clip_id: string;
+  video_url: string;
+  start_sec: number;
+  end_sec: number;
+  notes: string;
+  tags: string[];
+};
+
+type BroadcastBlock = StandardBroadcastBlock | YoutubeClipBlock;
 
 type BroadcastPlanSequenceItem = {
   transmission_id: string;
@@ -35,9 +50,11 @@ type BroadcastPlan = {
 const styles = `
 .broadcast-assembly { display: grid; grid-template-rows: auto auto 1fr; gap: 12px; font-family: system-ui, sans-serif; }
 .broadcast-assembly__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.broadcast-assembly__header-actions { display: flex; gap: 8px; align-items: center; }
 .broadcast-assembly__helper { color: #5f6368; font-size: 13px; }
 .broadcast-assembly__workspace { display: grid; grid-template-columns: 360px 1fr; gap: 12px; min-height: 0; }
-.broadcast-assembly__list, .broadcast-assembly__editor { border: 1px solid #ddd; border-radius: 8px; padding: 12px; overflow: auto; }
+.broadcast-assembly__workspace.has-clips { grid-template-columns: 320px 1fr 360px; }
+.broadcast-assembly__list, .broadcast-assembly__editor, .broadcast-assembly__clips { border: 1px solid #ddd; border-radius: 8px; padding: 12px; overflow: auto; }
 .broadcast-assembly__sequence { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .broadcast-assembly__sequence-item { border: 1px solid #dadce0; border-radius: 8px; padding: 8px; background: #fff; cursor: grab; }
 .broadcast-assembly__sequence-item.is-selected { border-color: #1a73e8; background: #e8f0fe; }
@@ -50,6 +67,10 @@ const styles = `
 .broadcast-assembly__chip { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #f1f3f4; font-size: 12px; }
 .broadcast-assembly__json { width: 100%; min-height: 240px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
 .broadcast-assembly__empty { color: #5f6368; }
+.broadcast-assembly__clip-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.broadcast-assembly__clip-item { border: 1px solid #eee; border-radius: 8px; padding: 8px; display: grid; gap: 4px; }
+.broadcast-assembly__button { border: 1px solid #dadce0; border-radius: 999px; background: #fff; padding: 6px 10px; cursor: pointer; }
+.broadcast-assembly__button--danger { border-color: #d93025; color: #d93025; }
 `;
 
 export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<void> {
@@ -82,10 +103,13 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
     introStingerGroup: "",
     outroStingerGroup: "",
     shutdownEvent: false,
+    youtubeClips: [],
   }));
 
   let selectedId: string | null = sequence[0]?.transmissionId ?? null;
   let draggedId: string | null = null;
+  let showClipsSidebar = false;
+  let importedManifest: ClipsManifest | null = null;
 
   function getModule(file: string): Promise<TransmissionModule> {
     if (!moduleCache.has(file)) {
@@ -93,6 +117,14 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
     }
 
     return moduleCache.get(file)!;
+  }
+
+  function getAvailableClips(): ClipManifestClip[] {
+    if (importedManifest) {
+      return importedManifest.clips;
+    }
+
+    return loadClipBoardManifest().clips;
   }
 
   const root = document.createElement("div");
@@ -105,15 +137,35 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
   header.className = "broadcast-assembly__header";
   const title = document.createElement("h2");
   title.textContent = "Broadcast Assembly";
+
+  const actions = document.createElement("div");
+  actions.className = "broadcast-assembly__header-actions";
+
+  const showClipsLabel = document.createElement("label");
+  const showClipsToggle = document.createElement("input");
+  showClipsToggle.type = "checkbox";
+  showClipsToggle.checked = showClipsSidebar;
+  showClipsToggle.addEventListener("change", () => {
+    showClipsSidebar = showClipsToggle.checked;
+    void render();
+  });
+  showClipsLabel.appendChild(showClipsToggle);
+  showClipsLabel.append(" Show Clips Available");
+
   const exportButton = document.createElement("button");
   exportButton.type = "button";
+  exportButton.className = "broadcast-assembly__button";
   exportButton.textContent = "Export broadcast_plan JSON";
+
+  actions.appendChild(showClipsLabel);
+  actions.appendChild(exportButton);
+
   header.appendChild(title);
-  header.appendChild(exportButton);
+  header.appendChild(actions);
 
   const helper = document.createElement("p");
   helper.className = "broadcast-assembly__helper";
-  helper.textContent = "Structures playback and sampling plans only. This tool does not generate or rewrite lyrics.";
+  helper.textContent = "Annotation + assembly only. No downloading, extraction, or audio playback outside YouTube embed.";
 
   const workspace = document.createElement("div");
   workspace.className = "broadcast-assembly__workspace";
@@ -124,12 +176,12 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
   const editorPanel = document.createElement("section");
   editorPanel.className = "broadcast-assembly__editor";
 
+  const clipsPanel = document.createElement("section");
+  clipsPanel.className = "broadcast-assembly__clips";
+
   const output = document.createElement("textarea");
   output.className = "broadcast-assembly__json";
   output.readOnly = true;
-
-  workspace.appendChild(listPanel);
-  workspace.appendChild(editorPanel);
 
   root.appendChild(header);
   root.appendChild(helper);
@@ -147,8 +199,17 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
 
   async function render(): Promise<void> {
     try {
+      workspace.classList.toggle("has-clips", showClipsSidebar);
+      workspace.innerHTML = "";
+      workspace.appendChild(listPanel);
+      workspace.appendChild(editorPanel);
+      if (showClipsSidebar) {
+        workspace.appendChild(clipsPanel);
+      }
+
       renderSequenceList();
       await renderEditor();
+      renderClipsPanel();
     } catch (error) {
       renderErrorBoundary(editorPanel, error, {
         title: "Unable to render broadcast settings",
@@ -163,7 +224,7 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
     listPanel.innerHTML = "";
 
     const heading = document.createElement("h3");
-    heading.textContent = "Transmission Order (drag + drop)";
+    heading.textContent = "Transmission Order (drag to reorder)";
     listPanel.appendChild(heading);
 
     const list = document.createElement("ul");
@@ -173,7 +234,6 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
       const li = document.createElement("li");
       li.className = "broadcast-assembly__sequence-item";
       li.draggable = true;
-      li.dataset.transmissionId = item.transmissionId;
 
       if (item.transmissionId === selectedId) {
         li.classList.add("is-selected");
@@ -273,6 +333,49 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
 
     editorPanel.appendChild(bedsGroup);
 
+    const youtubeClipGroup = document.createElement("div");
+    youtubeClipGroup.className = "broadcast-assembly__group";
+    const youtubeClipHeading = document.createElement("h4");
+    youtubeClipHeading.textContent = "YouTube clip blocks in this transmission";
+    youtubeClipGroup.appendChild(youtubeClipHeading);
+
+    if (selected.youtubeClips.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "broadcast-assembly__empty";
+      empty.textContent = "No youtube_clip blocks added yet.";
+      youtubeClipGroup.appendChild(empty);
+    } else {
+      const clipList = document.createElement("ul");
+      clipList.className = "broadcast-assembly__clip-list";
+
+      selected.youtubeClips.forEach((clip, index) => {
+        const item = document.createElement("li");
+        item.className = "broadcast-assembly__clip-item";
+        item.innerHTML = `
+          <strong>${clip.clip_id}</strong>
+          <span class="broadcast-assembly__meta">${clip.start_sec}s → ${clip.end_sec}s</span>
+          <span class="broadcast-assembly__meta">${clip.tags.join(", ")}</span>
+          <a href="${clip.video_url}" target="_blank" rel="noopener noreferrer">${clip.video_url}</a>
+        `;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.className = "broadcast-assembly__button broadcast-assembly__button--danger";
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => {
+          selected.youtubeClips.splice(index, 1);
+          void render();
+        });
+
+        item.appendChild(removeButton);
+        clipList.appendChild(item);
+      });
+
+      youtubeClipGroup.appendChild(clipList);
+    }
+
+    editorPanel.appendChild(youtubeClipGroup);
+
     const shutdownGroup = document.createElement("div");
     shutdownGroup.className = "broadcast-assembly__group";
     const shutdownLabel = document.createElement("label");
@@ -313,6 +416,115 @@ export async function mountBroadcastAssemblyUI(container: HTMLElement): Promise<
 
     summaryGroup.appendChild(chips);
     editorPanel.appendChild(summaryGroup);
+  }
+
+  function renderClipsPanel(): void {
+    clipsPanel.innerHTML = "";
+
+    if (!showClipsSidebar) {
+      return;
+    }
+
+    const heading = document.createElement("h3");
+    heading.textContent = "Clips Available";
+    clipsPanel.appendChild(heading);
+
+    const source = document.createElement("p");
+    source.className = "broadcast-assembly__meta";
+    source.textContent = importedManifest
+      ? `Source: imported clips.manifest.json (${importedManifest.clips.length} clips)`
+      : "Source: current Clip Board (local)";
+    clipsPanel.appendChild(source);
+
+    const importInput = document.createElement("input");
+    importInput.type = "file";
+    importInput.accept = "application/json,.json";
+    importInput.addEventListener("change", async () => {
+      const file = importInput.files?.[0];
+      if (!file) {
+        return;
+      }
+
+      const text = await file.text();
+      try {
+        const parsed = JSON.parse(text);
+        const result = clipsManifestSchema.safeParse(parsed);
+        if (!result.success) {
+          const issue = result.error.issues[0];
+          throw new Error(`${issue.path.join(".") || "root"}: ${issue.message}`);
+        }
+
+        importedManifest = result.data;
+        void render();
+      } catch (error) {
+        alert(`Invalid clips manifest: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    });
+
+    clipsPanel.appendChild(importInput);
+
+    const useBoardButton = document.createElement("button");
+    useBoardButton.type = "button";
+    useBoardButton.className = "broadcast-assembly__button";
+    useBoardButton.textContent = "Use current Clip Board";
+    useBoardButton.addEventListener("click", () => {
+      importedManifest = null;
+      void render();
+    });
+    clipsPanel.appendChild(useBoardButton);
+
+    const available = getAvailableClips();
+    if (available.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "broadcast-assembly__empty";
+      empty.textContent = "No clips available.";
+      clipsPanel.appendChild(empty);
+      return;
+    }
+
+    const selected = sequence.find((item) => item.transmissionId === selectedId) ?? null;
+
+    const list = document.createElement("ul");
+    list.className = "broadcast-assembly__clip-list";
+
+    for (const clip of available) {
+      const item = document.createElement("li");
+      item.className = "broadcast-assembly__clip-item";
+      item.innerHTML = `
+        <strong>${clip.clip_id}</strong>
+        <span class="broadcast-assembly__meta">${clip.title}</span>
+        <span class="broadcast-assembly__meta">${clip.start_sec}s → ${clip.end_sec}s</span>
+      `;
+
+      const addButton = document.createElement("button");
+      addButton.type = "button";
+      addButton.className = "broadcast-assembly__button";
+      addButton.textContent = "Add to selected transmission";
+      addButton.disabled = !selected;
+      addButton.addEventListener("click", () => {
+        if (!selected) {
+          return;
+        }
+
+        selected.youtubeClips.push({
+          type: "youtube_clip",
+          source: "youtube_clip",
+          clip_id: clip.clip_id,
+          video_url: clip.video_url,
+          start_sec: clip.start_sec,
+          end_sec: clip.end_sec,
+          notes: clip.notes,
+          tags: clip.tags,
+        });
+
+        void render();
+      });
+
+      item.appendChild(addButton);
+      list.appendChild(item);
+    }
+
+    clipsPanel.appendChild(list);
   }
 
   function reorderSequence(sourceId: string, targetId: string): void {
@@ -379,6 +591,8 @@ function buildBroadcastPlan(sequence: TransmissionAssemblyState[]): BroadcastPla
           source: "clips",
         });
       }
+
+      blocks.push(...item.youtubeClips);
 
       if (item.outroStingerGroup) {
         blocks.push({

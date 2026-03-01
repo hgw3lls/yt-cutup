@@ -8,6 +8,10 @@ export function renderValidationReport(container: HTMLElement, report: Validatio
   title.style.color = report.ok ? "#188038" : "#b3261e";
   container.appendChild(title);
 
+  const transmissionHeading = document.createElement("h3");
+  transmissionHeading.textContent = "Transmissions";
+  container.appendChild(transmissionHeading);
+
   const list = document.createElement("ul");
 
   for (const module of report.modules) {
@@ -29,4 +33,22 @@ export function renderValidationReport(container: HTMLElement, report: Validatio
   }
 
   container.appendChild(list);
+
+  const clipsHeading = document.createElement("h3");
+  clipsHeading.textContent = "Clips Manifest";
+  container.appendChild(clipsHeading);
+
+  const clipsItem = document.createElement("div");
+  clipsItem.textContent = `${report.clipsManifest.ok ? "✅ PASS" : "❌ FAIL"} — ${report.clipsManifest.file}`;
+  container.appendChild(clipsItem);
+
+  if (!report.clipsManifest.ok) {
+    const clipsErrors = document.createElement("ul");
+    for (const error of report.clipsManifest.errors) {
+      const errorItem = document.createElement("li");
+      errorItem.textContent = error;
+      clipsErrors.appendChild(errorItem);
+    }
+    container.appendChild(clipsErrors);
+  }
 }
