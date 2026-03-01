@@ -18,6 +18,7 @@ This repository is designed so the same data can be validated in CI and loaded b
 - [Repository layout](#repository-layout)
 - [Prerequisites](#prerequisites)
 - [Install](#install)
+- [How to run](#how-to-run)
 - [Development workflow](#development-workflow)
 - [Data model](#data-model)
 - [How to add or edit transmissions](#how-to-add-or-edit-transmissions)
@@ -90,6 +91,69 @@ npm -v
 
 ```bash
 npm install
+```
+
+---
+
+## How to run
+
+### Frontend only (Transmission Browser + Broadcast Assembly)
+
+Use this when you only need the local Vite app and static `/data` files.
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+### Full app (frontend + FastAPI backend)
+
+Use this when you need YouTube Search, Video Detail, OAuth playlist actions, or API-backed flows.
+
+1. Install frontend dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Set backend environment values (example):
+
+   ```bash
+   export YOUTUBE_API_KEY="..."
+   export GOOGLE_CLIENT_ID="..."
+   export GOOGLE_CLIENT_SECRET="..."
+   export OAUTH_REDIRECT_URL="http://localhost:8787/api/auth/callback"
+   export FRONTEND_ORIGIN="http://localhost:5173"
+   ```
+
+3. Install backend Python dependencies (first run):
+
+   ```bash
+   cd server
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   cd ..
+   ```
+
+4. Start both services:
+
+   ```bash
+   npm run dev:all
+   ```
+
+This starts:
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:8787`
+
+If you prefer separate terminals:
+
+```bash
+npm run dev:client
+npm run dev:server
 ```
 
 ---
