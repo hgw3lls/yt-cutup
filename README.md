@@ -131,34 +131,28 @@ Use this when you need YouTube Search, Video Detail, OAuth playlist actions, or 
 3. Install backend Python dependencies (first run):
 
    ```bash
-   python -m venv server/.venv
-   source server/.venv/bin/activate
-   python -m pip install -r server/requirements.txt
+   cd server
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   cd ..
    ```
 
-4. Start both services (with the Python venv still active):
+4. Start both services:
 
    ```bash
    npm run dev:all
    ```
-
-   `npm run dev:server` runs a helper script that prefers `server/.venv/bin/python` automatically when available.
 
 This starts:
 
 - Frontend: `http://localhost:5173`
 - Backend: `http://localhost:8787`
 
-> If you see missing-module errors such as `No module named uvicorn` or `No module named google.auth`, backend dependencies are not installed in the Python environment used by the server. Re-run step 3 and keep `server/.venv` active before step 4.
-
 If you prefer separate terminals:
 
 ```bash
-# terminal 1
 npm run dev:client
-
-# terminal 2 (activate backend venv first)
-source server/.venv/bin/activate
 npm run dev:server
 ```
 
@@ -422,5 +416,5 @@ Create `.env` from `.env.example` and fill required values:
 ### Dev scripts
 
 - `npm run dev:client` — Vite frontend
-- `npm run dev:server` — FastAPI backend (uses `server/.venv/bin/python` when present; otherwise `python`)
+- `npm run dev:server` — FastAPI backend (`python -m uvicorn`)
 - `npm run dev:all` — run both with `concurrently`
